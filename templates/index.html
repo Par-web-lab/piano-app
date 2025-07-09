@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Piano</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    
+    <div class="container">
+        
+        <!-- Left Main Area -->
+        <div class="main-content">
+           <h1 id="mainHeading">
+  <b class="cool">Piano Verse:Just Key It </b>
+  <span class="emoji">🔑</span>
+</h1>
+
+
+            <!-- Piano keys -->
+            <div class="piano">
+                <!-- Your piano keys remain unchanged -->
+                <div class="key-wrapper">
+                    <div class="white-key" data-note="C" data-key="A">A</div>
+                    <div class="black-key" data-note="C_s" data-key="W">W</div>
+                </div>
+                <div class="key-wrapper">
+                    <div class="white-key" data-note="D" data-key="S">S</div>
+                    <div class="black-key" data-note="D_s" data-key="E">E</div>
+                </div>
+                <div class="key-wrapper">
+                    <div class="white-key" data-note="E" data-key="D">D</div>
+                </div>
+                <div class="key-wrapper">
+                    <div class="white-key" data-note="F" data-key="F">F</div>
+                    <div class="black-key" data-note="F_s" data-key="T">T</div>
+                </div>
+                <div class="key-wrapper">
+                    <div class="white-key" data-note="G" data-key="G">G</div>
+                    <div class="black-key" data-note="G_s" data-key="Y">Y</div>
+                </div>
+                <div class="key-wrapper">
+                    <div class="white-key" data-note="A" data-key="H">H</div>
+                    <div class="black-key" data-note="Bb" data-key="U">U</div>
+                </div>
+                <div class="key-wrapper">
+                    <div class="white-key" data-note="B" data-key="J">J</div>
+                </div>
+                <div class="key-wrapper">
+                    <div class="white-key" data-note="C1" data-key="K">K</div>
+                    <div class="black-key" data-note="C_s1" data-key="O">O</div>
+                </div>
+                <div class="key-wrapper">
+                    <div class="white-key" data-note="D1" data-key="L">L</div>
+                    <div class="black-key" data-note="D_s1" data-key="P">P</div>
+                </div>
+                <div class="key-wrapper">
+                    <div class="white-key" data-note="E1" data-key="V">V</div>
+                </div>
+                <div class="key-wrapper">
+                    <div class="white-key" data-note="F1" data-key="B">B</div>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="description">
+                <h2>How to Use This Piano 🎼</h2>
+                <p>This is a simple virtual piano you can play using your keyboard or mouse.</p>
+                <ul>
+                    <li>🎹 Press the keys on your <b>keyboard</b> (e.g., A, S, D...) to play notes.</li>
+                    <li>🖱️ Click on the white or black keys with your <b>mouse</b> to play sounds.</li>
+                    <li>🔊 Make sure your device's <b>volume is on</b>.</li>
+                    <li>💡 Each key is labeled with its assigned keyboard letter.</li>
+                </ul>
+                <p>Have fun making music! 🎶</p>
+            </div>
+
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="sidebar">
+            <h2>Songs Played 🎶</h2>
+
+            <div class="song">
+                <h3>1) Happy Birthday</h3>
+                <pre>
+A S A F D
+A S A G F
+A K H F D S
+U H F G F
+                </pre>
+            </div>
+
+            <div class="song">
+                <h3>2) Tum Hi Ho</h3>
+                <pre>
+J G H
+G H J G H
+T H G
+T D T D S D
+                </pre>
+            </div>
+
+            <div class="song">
+                <h3>3) Sa Re Ga Ma</h3>
+                <pre>
+A S D F G H J K
+K J H G F D S A
+                </pre>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='piano.js') }}"></script>
+</body>
+</html>
