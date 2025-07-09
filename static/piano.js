@@ -1,4 +1,5 @@
-// Preload all audio files and store in a dictionary
+// Preload all audio files into AudioBuffers using Web Audio API
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 const audioMap = {};
 const notes = [
     "C", "C_s", "D", "D_s", "E", "F", "F_s",
@@ -6,39 +7,45 @@ const notes = [
     "D1", "D_s1", "E1", "F1"
 ];
 
+// Load and decode all audio files
 notes.forEach(note => {
-    const audio = new Audio(`/static/sounds/${note}.wav`);
-    audio.load();  // Preload
-    audioMap[note] = audio;
+    fetch(`/static/sounds/${note}.wav`)
+        .then(response => response.arrayBuffer())
+        .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
+        .then(decodedData => {
+            audioMap[note] = decodedData;
+        })
+        .catch(err => console.error(`Error loading ${note}:`, err));
 });
 
-// Function to play the note with visual feedback
+// Play note from buffer instantly
 function playNote(note, keyDiv) {
-    const originalAudio = audioMap[note];
-
-    if (!originalAudio) {
-        console.error(`Audio for note "${note}" not preloaded.`);
+    const buffer = audioMap[note];
+    if (!buffer) {
+        console.error(`Buffer for note "${note}" not loaded.`);
         return;
     }
 
-    const clone = originalAudio.cloneNode(); // Allow overlapping sounds
-    clone.play().catch(err => console.error("Playback failed:", err));
+    const source = audioContext.createBufferSource();
+    source.buffer = buffer;
+    source.connect(audioContext.destination);
+    source.start(0); // Play immediately
 
-    // Visual key press
+    // Visual feedback
     if (keyDiv) {
         keyDiv.classList.add('active');
         setTimeout(() => keyDiv.classList.remove('active'), 150);
     }
 }
 
-// Mouse click support
+// Mouse support
 document.querySelectorAll('.white-key, .black-key').forEach(key => {
     key.addEventListener('click', () => {
         playNote(key.dataset.note, key);
     });
 });
 
-// Keyboard input support
+// Keyboard support
 document.addEventListener('keydown', e => {
     const pressedKey = e.key.toUpperCase();
     const keyDiv = document.querySelector(`[data-key="${pressedKey}"]`);
