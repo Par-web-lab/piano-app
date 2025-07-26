@@ -58,4 +58,4 @@ PIANO_WEB_APP/
 
 ## 🎥 Preview
 
-![Piano App Preview](assets/piano-preview.png)
+![Piano App Preview](image/piano-preview.png)
