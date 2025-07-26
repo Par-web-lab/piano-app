@@ -2,24 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Web Piano</title>
+    <title>Piano Verse</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    
-    <div class="container">
+
+    <!-- 🎵 Floating Musical Notes Animation -->
+    <div class="floating-notes">
+        <span>🎵</span>
+        <span>🎶</span>
+        <span>🎼</span>
+        <span>🎹</span>
+    </div>
+
+    <!-- 🎹 Header -->
+    <header class="site-header">
+        <h1 id="mainHeading">
+            <b class="cool">Piano Verse: Just Key It</b>
+            <span class="emoji">🔑</span>
+        </h1>
         
-        <!-- Left Main Area -->
+    </header>
+
+    <!-- 🎼 Main Content -->
+    <div class="container">
+        <!-- Left Section -->
         <div class="main-content">
-           <h1 id="mainHeading">
-  <b class="cool">Piano Verse:Just Key It </b>
-  <span class="emoji">🔑</span>
-</h1>
 
-
-            <!-- Piano keys -->
+            <!-- Piano Keys -->
             <div class="piano">
-                <!-- Your piano keys remain unchanged -->
                 <div class="key-wrapper">
                     <div class="white-key" data-note="C" data-key="A">A</div>
                     <div class="black-key" data-note="C_s" data-key="W">W</div>
@@ -62,7 +73,7 @@
                 </div>
             </div>
 
-            <!-- Description -->
+            <!-- Instructions -->
             <div class="description">
                 <h2>How to Use This Piano 🎼</h2>
                 <p>This is a simple virtual piano you can play using your keyboard or mouse.</p>
@@ -74,10 +85,9 @@
                 </ul>
                 <p>Have fun making music! 🎶</p>
             </div>
-
         </div>
 
-        <!-- Right Sidebar -->
+        <!-- 🎶 Sidebar -->
         <div class="sidebar">
             <h2>Songs Played 🎶</h2>
 
@@ -110,7 +120,7 @@ K J H G F D S A
             </div>
 
             <div class="song">
-                <h3>4) All of me</h3>
+                <h3>4) All of Me</h3>
                 <pre>
 A A A
 W W W
@@ -119,9 +129,19 @@ U U U
                 </pre>
             </div>
         </div>
-
     </div>
 
+    <!-- 🎵 Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2025 Piano Verse.</p>
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Support</a>
+        </div>
+    </footer>
+
+    <!-- 🎹 Piano Script -->
     <script src="{{ url_for('static', filename='piano.js') }}"></script>
 </body>
 </html>
