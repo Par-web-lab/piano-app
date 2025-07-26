@@ -55,3 +55,7 @@ PIANO_WEB_APP/
    ```bash
    python app.py
    ```
+
+## 🎥 Preview
+
+![Piano App Preview](assets/piano-preview.png)
